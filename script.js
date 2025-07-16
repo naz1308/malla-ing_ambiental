@@ -1,3 +1,5 @@
+// script.js
+
 const ramos = [
   // --- Semestre 1 ---
   { codigo: 'PG315', nombre: 'TECNICAS DE COMUNICACION Y REDACCION', creditos: 2, semestre: 1 },
@@ -88,6 +90,7 @@ let estadoRamos = JSON.parse(localStorage.getItem('estadoRamos')) || {};
 
 function crearRamos() {
   const contenedor = document.getElementById('malla');
+  contenedor.innerHTML = '';
   for (let semestre = 1; semestre <= 10; semestre++) {
     const semCont = document.createElement('div');
     semCont.className = 'semestre-container';
@@ -133,10 +136,24 @@ function aprobarRamo(ramo) {
       const cumplidos = r.requisitos.every(req => estadoRamos[req]);
       if (cumplidos) {
         const target = document.getElementById(r.codigo);
-        target.classList.remove('bloqueado');
+        if (target) target.classList.remove('bloqueado');
       }
     }
   });
 }
 
-crearRamos();
+function reiniciarMalla() {
+  localStorage.removeItem('estadoRamos');
+  estadoRamos = {};
+  crearRamos();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  crearRamos();
+
+  const botonReiniciar = document.createElement('button');
+  botonReiniciar.innerText = 'Reiniciar Malla';
+  botonReiniciar.className = 'reiniciar';
+  botonReiniciar.onclick = reiniciarMalla;
+  document.body.prepend(botonReiniciar);
+});

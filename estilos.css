@@ -1,78 +1,70 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0fff4;
+  background: #f4fdf6;
   color: #333;
-  margin: 0;
   padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 30px;
-  color: #006400;
 }
 
 #creditos {
-  text-align: center;
   font-weight: bold;
+  text-align: center;
   margin-bottom: 20px;
-}
-
-#malla {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 15px;
-  max-width: 1200px;
-  margin: 0 auto;
+  font-size: 18px;
 }
 
 .semestre {
-  grid-column: 1 / -1;
-  font-size: 1.3em;
-  font-weight: bold;
+  background: #c6efd9;
+  padding: 10px;
   margin-top: 20px;
-  color: #004d00;
-  border-bottom: 2px solid #66bb6a;
-  padding-bottom: 5px;
+  font-weight: bold;
+  border-radius: 6px;
 }
 
 .ramo {
-  border: 2px solid #a5d6a7;
-  background-color: #e8f5e9;
-  padding: 10px;
+  background: #e6fff0;
+  border: 2px solid #90ee90;
   border-radius: 8px;
+  padding: 10px;
+  margin: 8px 0;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .ramo:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 10px #c8e6c9;
-}
-
-.ramo.bloqueado {
-  opacity: 0.4;
-  cursor: not-allowed;
+  background: #d0ffe1;
 }
 
 .ramo.aprobado {
-  background-color: #a5d6a7;
+  background-color: #a4fcb0;
   text-decoration: line-through;
-  border-color: #66bb6a;
+}
+
+.ramo.bloqueado {
+  background-color: #ddd;
+  color: #999;
+  cursor: not-allowed;
+  border-color: #ccc;
 }
 
 .codigo {
   font-weight: bold;
-  color: #2e7d32;
+  font-size: 14px;
 }
 
 .nombre {
-  font-size: 0.95em;
-  margin: 5px 0;
+  margin-top: 5px;
+  font-size: 13px;
 }
 
 .creditos {
-  font-size: 0.85em;
+  font-size: 12px;
   color: #555;
+  margin-top: 4px;
 }
-
